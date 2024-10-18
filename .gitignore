@@ -1,0 +1,89 @@
+# Flutter/Dart/Pub related
+.dart_tool/
+.packages
+.flutter-plugins
+.flutter-plugins-dependencies
+.melos/
+.pub-cache/
+.pub/
+/build/
+.svn/
+
+# Obsolete
+.flutter-*
+ios/Flutter/.last_build_id
+
+# Android related
+**/android/*.gradle
+**/android/captures/
+**/android/.gradle/
+**/android/.idea/
+**/android/local.properties
+**/android/app/debug/
+**/android/app/profile/
+**/android/app/release/
+**/android/app/key.properties
+
+# iOS related
+**/ios/Pods/
+**/ios/.symlinks/
+**/ios/Flutter/Flutter.framework/
+**/ios/Flutter/Flutter.podspec
+**/ios/ServiceDefinitions.json
+**/ios/Runner.xcworkspace/
+**/ios/Flutter/Flutter.podspec
+
+# Web related
+**/web/.dart_tool/
+**/web/build/
+
+# VS Code related
+.vscode/
+.history/
+
+# Intellij related
+.idea/
+*.iml
+
+# C++ specific
+# Object files and debug files
+*.o
+*.obj
+*.so
+*.dylib
+*.dll
+*.a
+*.lib
+
+# Compiled Static libraries
+*.lai
+*.lo
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Debug files
+*.dSYM/
+*.exe
+*.out
+*.app
+
+# CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Miscellaneous
+*.DS_Store
+*.log
+*.lock
+*.pyc
+*.pyo
+*.swp
+*.tmp
+*.temp
+*.bak
+*.orig
+*.old
