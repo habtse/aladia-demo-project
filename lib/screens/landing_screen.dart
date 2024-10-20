@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class LandingScreen extends StatelessWidget {
   const LandingScreen({super.key});
@@ -34,7 +35,7 @@ class LandingScreen extends StatelessWidget {
         actions: [
           ElevatedButton.icon(
             onPressed: () {
-              // Join Us button action
+              context.go('/login');
             },
             icon: const Icon(Icons.person_add, color: Colors.white),
             label: const Text('Join Us', style: TextStyle(color: Colors.white)),
@@ -51,7 +52,6 @@ class LandingScreen extends StatelessWidget {
       ),
       body: Container(
         padding: const EdgeInsets.all(20),
-        color: Colors.black,
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
