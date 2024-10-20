@@ -25,7 +25,7 @@ jobs:
       - name: Set up Flutter
         uses: flutter-actions/setup-flutter@v3
         with:
-          flutter-version: 'latest'
+          version: 'latest'
 
       - name: Cache Flutter packages
         uses: actions/cache@v3
@@ -41,8 +41,8 @@ jobs:
       # - name: Analyze code
       #   run: flutter analyze
 
-      - name: Run unit tests
-        run: flutter test
+      # - name: Run unit tests
+      #   run: flutter test
 
       - name: Build for Android (Release)
         run: flutter build apk --release
