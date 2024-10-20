@@ -17,8 +17,8 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
   @override
   Future<String> logIn(LogInModel oldUser) async {
     var url = Uri.parse('$baseUrl/login');
-  
-    print(jsonEncode(oldUser.toJson()));
+
+    // print(jsonEncode(oldUser.toJson()));
 
     final res = await http.post(url,
         headers: {'Content-Type': 'application/json'},
