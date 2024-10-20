@@ -1,0 +1,38 @@
+name: Aladia CI Workflow
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+    branches: [master]
+
+
+jobs:
+    build-and-test:
+        runs-on: ubuntu-latest
+
+        steps:
+          - name: checout the code
+            uses: actions/checkout@v3
+                
+          - name: Set up Flutter
+            uses: actions/setup-flutter@v1
+            with:
+                flutter-version: 'latest'
+            
+          - name: Get Dependencies
+            run: flutter pub get
+            
+          - name: Build for Android
+            run: flutter build apk --release
+            
+          - name: Build for IOS
+            run: flutter build ios --release
+            
+          - name: Run analyser
+            run: flutter analyse
+            
+          - name: Run flutter app
+            run: flutter run
+
+    
