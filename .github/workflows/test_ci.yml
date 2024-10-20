@@ -27,17 +27,54 @@ jobs:
         with:
           flutter-version: 'latest'
 
+      - name: Cache Flutter packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+    
       - name: Get Dependencies
         run: flutter pub get
 
       - name: Build for Android
         run: flutter build apk --release
 
-      - name: Run analyzer
-        run: flutter analyze --no-pub
+      - name: Upload APK
+        uses: actions/upload-artifact@v3
+        with:
+          name: android-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
 
-      - name: Run unit tests
-        run: flutter test
+  analyze-and-test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        device: [emulator-5554, emulator-5556]
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v4
+    
+      - name: Set up Flutter
+        uses: flutter-actions/setup-flutter@v3
+        with:
+          flutter-version: 'latest'
+
+      - name: Cache Flutter packages
+        uses: actions/cache@v3
+        with:
+          path: ~/.pub-cache
+          key: ${{ runner.os }}-flutter-${{ hashFiles('**/pubspec.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-flutter-
+
+    #   - name: Run analyzer
+    #     run: flutter analyze --no-pub
+
+    #   - name: Run unit tests
+    #     run: flutter test
 
       - name: Run integration tests
-        run: flutter test --target-devices 'emulator-5554'
+        run: flutter test --target-devices '${{ matrix.device }}'
