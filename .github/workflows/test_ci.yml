@@ -33,9 +33,6 @@ jobs:
       - name: Build for Android
         run: flutter build apk --release
 
-      - name: Build for iOS
-        run: flutter build ios --release
-
       - name: Run analyzer
         run: flutter analyze --no-pub
 
