@@ -59,7 +59,6 @@ class LandingScreen extends StatelessWidget {
             const Text(
               'E-learning Revolution 2',
               style: TextStyle(
-                color: Colors.white,
                 fontSize: 40,
                 fontWeight: FontWeight.bold,
               ),
@@ -70,7 +69,6 @@ class LandingScreen extends StatelessWidget {
               'world the opportunity to do it with a new study platform '
               'designed for teachers',
               style: TextStyle(
-                color: Colors.white70,
                 fontSize: 18,
               ),
             ),
